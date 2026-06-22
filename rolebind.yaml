@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: podreadbind
+  namespace: cinjith
+subjects:
+  - kind: ServiceAccount
+    name: sa-cb
+    namespace: cinjith
+roleRef:
+  kind: Role
+  name: pod-read
+  apiGroup: rbac.authorization.k8s.io
