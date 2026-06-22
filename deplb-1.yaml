@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-lb1
+  namespace: cinjith
+  annotations:
+    kubernetes.io/change-cause: "image tag updating to caddynline-perl for nginx"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: caddy
+  template:
+    metadata:
+      labels:
+        app: caddy
+    spec:
+      containers:
+      - name: c1
+        image: caddy

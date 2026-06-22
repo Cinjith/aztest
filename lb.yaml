@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lbsvc-cb
+  namespace: cinjith
+spec:
+  type: LoadBalancer
+  selector:
+    app: caddy
+  ports:
+  - port: 80  #service port inside cluster
+    targetPort: 80 #container port
+    #nodePort: 30020
